@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  scout_id: 1
+  rank: MyString
+
+two:
+  scout_id: 1
+  rank: MyString

@@ -1,0 +1,142 @@
+<%= f.fields_for :star_rank do |ff|  %>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th colspan="4" align="left"><h2>Star Rank</h2></th>
+		</tr>
+		<tr>
+			<th>Number</th>
+			<th>Requirements</th>
+			<th>Completed</th>
+			<th>Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr data-name="one_li"  data-controller="star_rank">
+			<td>1</td>
+			<td>Be active in your unit (and patrol if you are in one) for at least four months as a First Class Scout.</td>
+			<td> 
+				 <% if(!@star.one_li.blank?) %>
+				 <%=  image_tag("checkmark.png") %>
+				 <% end %>
+			</td>
+			<td>
+				<%= ff.text_field(:one_li_date, :class => 'calendar')%>				
+			</td>
+		</tr>
+		<tr data-name="two_li" data-controller="star_rank">
+			<td>2</td>
+			<td>Demonstrate Scout spirit by living the Scout Oath (Promise) and Scout Law in your everyday life.</td>
+			<td> <% if(!@star.two_li.blank?) %>
+				 <%=  image_tag("checkmark.png") %>
+				 <% end %> 
+			</td>
+			<td></td>
+		</tr>
+		<tr data-name="three_li" data-controller="star_rank">
+			<td>3</td>
+			<td>
+				<p>Earn six merit badges, including any four from the required list for Eagle.</p>
+				<p>				 
+					<select>
+				 		<option>Citizenship in the Nation</option>
+				 		<option>Citizenship in the Community</option>
+				 		<option>Citizenship in the World</option>
+				 		<option>First Aid</option>
+				 	</select>
+				 </p>
+				 <p>				 
+					<select>
+				 		<option>Citizenship in the Nation</option>
+				 		<option>Citizenship in the Community</option>
+				 		<option>Citizenship in the World</option>
+				 		<option>First Aid</option>
+				 	</select>
+				 </p>
+				 <p>				 
+					<select>
+				 		<option>Citizenship in the Nation</option>
+				 		<option>Citizenship in the Community</option>
+				 		<option>Citizenship in the World</option>
+				 		<option>First Aid</option>
+				 	</select>
+				 </p>
+				 <p>				 
+					<select>
+				 		<option>Citizenship in the Nation</option>
+				 		<option>Citizenship in the Community</option>
+				 		<option>Citizenship in the World</option>
+				 		<option>First Aid</option>
+				 	</select>
+				 </p>
+				 <p>				 
+					<select>
+				 		<option>Citizenship in the Nation</option>
+				 		<option>Citizenship in the Community</option>
+				 		<option>Citizenship in the World</option>
+				 		<option>First Aid</option>
+				 	</select>
+				 </p>
+				 <p>				 
+					<select>
+				 		<option>Citizenship in the Nation</option>
+				 		<option>Citizenship in the Community</option>
+				 		<option>Citizenship in the World</option>
+				 		<option>First Aid</option>
+				 	</select>
+				 </p>
+			</td>
+			<td> <% if(!@star.three_li.blank?) %>
+				 <%=  image_tag("checkmark.png") %>
+				 <% end %> 
+			</td>
+			<td></td>
+		</tr>
+				<tr data-name="four_li" data-controller="star_rank">
+			<td>4</td>
+			<td>While a First Class Scout, take part in service project(s) totaling at least six hours of work. These projects must be approved by your Scoutmaster.</td>
+			<td> <% if(!@star.four_li.blank?) %>
+				 <%=  image_tag("checkmark.png") %>
+				 <% end %> 
+			</td>
+			<td></td>
+		</tr>
+				<tr data-name="five_li" data-controller="star_rank">
+			<td>5</td>
+			<td><p>While a First Class Scout, serve actively for four months in one or more of the following positions of responsibility (or carry out a Scoutmaster-assigned leadership project to help the unit): </p>
+
+<p>Boy Scout troop. Patrol leader, assistant senior patrol leader, senior patrol leader, Venture patrol leader, troop guide, Order of the Arrow troop representative, den chief, scribe, librarian, historian, quartermaster, bugler, junior assistant Scoutmaster, chaplain aide, instructor, troop Webmaster, or Leave No Trace trainer.</p>
+
+<p>Varsity Scout team. Captain, cocaptain, program manager, squad leader, team secretary, Order of the Arrow troop representative, librarian, historian, quartermaster, chaplain aide, instructor, den chief, team Webmaster, or Leave No Trace trainer.</p>
+
+<p>Venturing crew/ship. President, vice president, secretary, treasurer, den chief, quartermaster, historian, guide, boatswain, boatswain’s mate, yeoman, purser, storekeeper, crew/ship Webmaster, or Leave No Trace trainer.</p></td>
+			<td> <% if(!@star.five_li.blank?) %>
+				 <%=  image_tag("checkmark.png") %>
+				 <% end %> 
+			</td>
+			<td></td>
+		</tr>
+				<tr data-name="six_li" data-controller="star_rank">
+			<td>6</td>
+			<td>Take part in a Scoutmaster conference.</td>
+			<td> <% if(!@star.six_li.blank?) %>
+				 <%=  image_tag("checkmark.png") %>
+				 <% end %> 
+			</td>
+			<td></td>
+		</tr>
+				<tr data-name="seven_li" data-controller="star_rank">
+			<td>7</td>
+			<td>Complete your board of review.</td>
+			<td> <% if(!@star.seven_li.blank?) %>
+				 <%=  image_tag("checkmark.png") %>
+				 <% end %> 
+			</td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+<%= javascript_tag do %>
+  window.advancementId = "<%=j @star.id.to_s %>"; 
+<% end %>
+<% end %>

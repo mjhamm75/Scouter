@@ -1,0 +1,25 @@
+<%= form_for(@advancement) do |f| %>
+  <% if @advancement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@advancement.errors.count, "error") %> prohibited this advancement from being saved:</h2>
+
+      <ul>
+      <% @advancement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :scout_id %><br />
+    <%= f.number_field :scout_id %>
+  </div>
+  <div class="field">
+    <%= f.label :rank %><br />
+    <%= f.text_field :rank %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
