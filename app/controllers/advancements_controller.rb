@@ -2,8 +2,9 @@ class AdvancementsController < ApplicationController
   # GET /advancements
   # GET /advancements.json
   def index
-    @advancements = Advancement.all
-    @advancement = Advancement.first
+    puts "INDEX"
+    puts params.inspect
+    @advancement = Advancement.find(params[:scout_id])
     @boy_scout = @advancement.boy_scout_rank
     @star = @advancement.star_rank
     respond_to do |format|
@@ -17,17 +18,15 @@ class AdvancementsController < ApplicationController
   def show
     puts "SHOW"
     puts params.inspect
-    @star = Scout.find(params[:scout_id]).advancement.boy_scout_rank
     puts "]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]"
-    puts @star.one_li
 
     @advance = Scout.find(params[:scout_id]).advancement
+    scout = Scout.find(params[:scout_id])
     con = params[:con]
     req = params[:req]
     puts con
     puts req
-    # @advance.toggle_approve(params[:con], params[:req])
-    @link = @advance.toggle_approve(con, req)
+    @link = @advance.toggle_approve(scout, con, req)
     respond_to do |format|
       format.json
     end

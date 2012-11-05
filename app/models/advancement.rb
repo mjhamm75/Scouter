@@ -8,25 +8,28 @@ class Advancement < ActiveRecord::Base
   attr_accessible :boy_scout_rank_attributes
   attr_accessible :star_rank_attributes
 
-  def toggle_approve(con, req)
+  def toggle_approve(scout, con, req)
     
     puts "TOGGLE_APPROVE"
     puts "??????????????????????????????????"
+    puts scout.id
     puts con
     puts req
-    rank = self.send(con)
-   	puts rank.class
-   	if(rank.send(req).blank?)
-   		rank.send(req + '=', "jh")
+    advancement = scout.advancement
+    rank = scout.advancement.send(con)
+    puts rank.class
+
+   	if(scout.advancement.send(con).send(req).blank?)
+   		scout.advancement.send(con).send(req + '=', "jh")
    		puts "Inserted Name"
-   		puts rank.send(req)
+   		puts scout.advancement.send(con).send(req)
    	else
-   		rank.send(req + '=', "")
+   		scout.advancement.send(con).send(req + '=', "")
    		puts "Inserted Blank"
-   		puts rank.send(req)
+   		puts scout.advancement.send(con).send(req)
    	end
    	puts "SAVED"
-   	rank.save
+   	scout.advancement.send(con).save
    	puts "FINISHED"
   end
 

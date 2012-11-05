@@ -24,14 +24,12 @@ class ScoutsController < ApplicationController
   # GET /scouts/new
   # GET /scouts/new.json
   def new
-    Scout.transaction(:requires_new => true) do
-      @scout = Scout.create
-      @advancement = @scout.create_advancement
-      @boy_scout = @advancement.create_boy_scout_rank
-      @star = @advancement.create_star_rank
-      raise ActiveRecord::Rollback
-    end
-    
+    puts "NEW"
+    @scout = Scout.new
+    @scout.advancement = Advancement.new
+    @scout.advancement.boy_scout_rank = BoyScoutRank.new
+    @scout.advancement.star_rank = StarRank.new
+
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @scout }
@@ -46,13 +44,20 @@ class ScoutsController < ApplicationController
   # POST /scouts
   # POST /scouts.json
   def create
+    puts "CREATE"
     @scout = Scout.new(params[:scout])
+    # @scout.advancement = Advancement.new
+    # @scout.advancement.boy_scout_rank = BoyScoutRank.new
+    # @scout.advancement.star_rank = StarRank.new
+
 
     respond_to do |format|
       if @scout.save
+        puts "SAVED"
         format.html { redirect_to @scout, notice: 'Scout was successfully created.' }
         format.json { render json: @scout, status: :created, location: @scout }
       else
+        puts "NOT SAVED"
         format.html { render action: "new" }
         format.json { render json: @scout.errors, status: :unprocessable_entity }
       end

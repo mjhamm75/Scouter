@@ -18,8 +18,8 @@
 $(document).ready(function(){
 	$('tr td:not(:last-child)').click(function(){
 		row = $(this).parent();
-		name = $(this).data('name');
-		controller = $(this).data('controller');
+		name = row.data('name');
+		controller = row.data('controller');
 		if(row.find("td").find("img:visible").length > 0){
 			row.find("td").find("img").hide('fast');
 			row.find('td').eq(3).html("");

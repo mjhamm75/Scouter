@@ -15,7 +15,9 @@
 		<tr data-name="one_li"  data-controller="boy_scout_rank">
 			<td>1</td>
 			<td>Meet the age requirements. Be a boy who is 11 years old, or one who has completed the fifth grade or earned the Arrow of Light Award and is at least 10 years old, but is not yet 18 years old.</td>
-			<td> 
+			<td>
+				 <%= puts "==========================" %>
+				 <%= puts @boy_scout.one_li.blank? %>
 				 <% if(!@boy_scout.one_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %>
