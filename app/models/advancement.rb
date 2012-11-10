@@ -23,10 +23,14 @@ class Advancement < ActiveRecord::Base
    		scout.advancement.send(con).send(req + '=', "jh")
    		puts "Inserted Name"
    		puts scout.advancement.send(con).send(req)
+      puts scout.advancement.send(con).send(req + "_date" + '=', Date.new)
+      puts "Inserted Date"
    	else
    		scout.advancement.send(con).send(req + '=', "")
    		puts "Inserted Blank"
    		puts scout.advancement.send(con).send(req)
+      puts scout.advancement.send(con).send(req + "_date" + '=', "")
+      puts "Removed Date"
    	end
    	puts "SAVED"
    	scout.advancement.send(con).save

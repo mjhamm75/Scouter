@@ -1,5 +1,5 @@
 <%= f.fields_for :boy_scout_rank do |ff|  %>
-<table class="table table-hover">
+<table class="table table-hover" data-controller="boy_scout_rank">
 	<thead>
 		<tr>
 			<th colspan="4" align="left"><h2>Boy Scout Rank</h2></th>
@@ -12,98 +12,99 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr data-name="one_li"  data-controller="boy_scout_rank">
+		<tr data-name="one_li">
 			<td>1</td>
 			<td>Meet the age requirements. Be a boy who is 11 years old, or one who has completed the fifth grade or earned the Arrow of Light Award and is at least 10 years old, but is not yet 18 years old.</td>
 			<td>
-				 <%= puts "==========================" %>
-				 <%= puts @boy_scout.one_li.blank? %>
-				 <% if(!@boy_scout.one_li.blank?) %>
-				 <%=  image_tag("checkmark.png") %>
-				 <% end %>
+				<%= ff.text_field :one_li %>
+				<% if(!@boy_scout.one_li.blank?) %>
+				<%=  image_tag("checkmark.png") %>
+				<% end %>
 			</td>
-			<td><input  id="datepicker" /></td>
+			<td>
+				<%= ff.text_field(:one_li_date, :class => "datepicker") %>
+			</td>
 		</tr>
-		<tr data-name="two_li" data-controller="boy_scout_rank">
+		<tr data-name="two_li">
 			<td>2</td>
 			<td>Find a Scout troop near your home.</td>
 			<td> <% if(!@boy_scout.two_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td></td>
+			<td><input class="datepicker" /></td>
 		</tr>
-		<tr data-name="three_li" data-controller="boy_scout_rank">
+		<tr data-name="three_li">
 			<td>3</td>
 			<td>Complete a Boy Scout application and health history signed by your parent or guardian.</td>
 			<td> <% if(!@boy_scout.three_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td></td>
+			<td><input class="datepicker" /></td>
 		</tr>
-				<tr data-name="four_li" data-controller="boy_scout_rank">
+				<tr data-name="four_li">
 			<td>4</td>
 			<td>Repeat the Pledge of Allegiance.</td>
 			<td> <% if(!@boy_scout.four_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td></td>
+			<td><input class="datepicker" /></td>
 		</tr>
-				<tr data-name="five_li" data-controller="boy_scout_rank">
+				<tr data-name="five_li">
 			<td>5</td>
 			<td>Demonstrate the Scout sign, salute, and handshake.</td>
 			<td> <% if(!@boy_scout.five_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td></td>
+			<td><input class="datepicker" /></td>
 		</tr>
-				<tr data-name="six_li" data-controller="boy_scout_rank">
+				<tr data-name="six_li">
 			<td>6</td>
 			<td>Demonstrate tying the square knot (a joining knot).</td>
 			<td> <% if(!@boy_scout.six_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td></td>
+			<td><input class="datepicker" /></td>
 		</tr>
-				<tr data-name="seven_li" data-controller="boy_scout_rank">
+				<tr data-name="seven_li">
 			<td>7</td>
 			<td>Understand and agree to live by the Scout Oath or Promise, Law, motto, and slogan, and the Outdoor Code.</td>
 			<td> <% if(!@boy_scout.seven_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td></td>
+			<td><input class="datepicker" /></td>
 		</tr>
-				<tr data-name="eight_li" data-controller="boy_scout_rank">
+				<tr data-name="eight_li">
 			<td>8</td>
 			<td>Describe the Scout badge.</td>
 			<td> <% if(!@boy_scout.eight_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td></td>
+			<td><input class="datepicker" /></td>
 		</tr>
-				<tr data-name="nine_li" data-controller="boy_scout_rank">
+				<tr data-name="nine_li">
 			<td>9</td>
 			<td>Complete the pamphlet exercises. With your parent or guardian, complete the exercises in the pamphlet How to Protect Your Children From Child Abuse: A Parent’s Guide.</td>
 			<td> <% if(!@boy_scout.nine_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td></td>
+			<td><input class="datepicker" /></td>
 		</tr>
-				<tr data-name="ten_li" data-controller="boy_scout_rank">
+				<tr data-name="ten_li">
 			<td>10</td>
 			<td>Participate in a Scoutmaster conference. Turn in your Boy Scout application and health history form signed by your parent or guardian, then participate in a Scoutmaster conference</td>
 			<td> <% if(!@boy_scout.ten_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td></td>
+			<td><input class="datepicker" /></td>
 		</tr>
 
 	</tbody>

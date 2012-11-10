@@ -20,18 +20,12 @@ table tbody tr td + td + td {
 	white-space: nowrap;
 }
 
-.date-width {
-	width: 100px;
+table tbody tr td + td + td input {
+	width: 95px;
+	border: none;
 }
 
-.calendar {
-	float: left;
-	width: 16px;
-	height: 16px;
-	padding: 0;
-	margin: 5px 3px 0;
-	display: block;
-	text-indent: -2000px;
-	overflow: hidden;
-	background: url(../assets/calendar.png) no-repeat; 
+.datepicker {
+	border: none;
+	width: 95px;
 }

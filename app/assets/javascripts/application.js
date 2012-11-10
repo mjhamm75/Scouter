@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui.js
+//= require jquery.minical.js
 //= require index.js
 //= require_tree .
 
@@ -19,18 +21,18 @@ $(document).ready(function(){
 	$('tr td:not(:last-child)').click(function(){
 		row = $(this).parent();
 		name = row.data('name');
-		controller = row.data('controller');
-		if(row.find("td").find("img:visible").length > 0){
-			row.find("td").find("img").hide('fast');
-			row.find('td').eq(3).html("");
+		controller = $('[data-controller]').data('controller')
+		if(row.children().eq(2).find("img:visible").length > 0){
+			row.children().eq(2).find("img").hide('fast');
+			row.find('input').val("");
 		} else {
-			if(row.find("td").find("img").length > 0){
-				row.find("td").find("img").show('fast');
+			if(row.children().eq(2).find("img").length > 0){
+				row.children().eq(2).find("img").show('fast');
 			} else {
-				row.children().eq(2).replaceWith('<td><img alt=\"Checkmark\" src=\"/assets/checkmark.png\"></td>');
+				row.children().eq(2).replaceWith('<td><img alt=\"Checkmark\" src=\"/assets/checkmark.png\"></td>').hide().show('slow');
 			}
-			d = $.datepicker.formatDate('yy-M-dd', new Date());		
-			row.find('td').eq(3).html(d).hide().fadeIn('slow');
+			d = $.datepicker.formatDate('yy-M-dd', new Date());
+			row.find('input').val(d);
 		}
 		$.ajax("advancements/" + advancementId, {
 			type: 'GET',
@@ -51,5 +53,9 @@ $(document).ready(function(){
 		console.log("It still works");
 	});
 
-	$('table tr td(last-child)').datepicker("option", "dateFormat", "yy-M-dd");
+	$('.datepicker').datepicker({
+		showOn: "both",
+		buttonImage: "images/calendar.gif",
+		buttonImageOnly: true
+	});
 });
