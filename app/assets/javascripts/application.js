@@ -55,7 +55,32 @@ $(document).ready(function(){
 
 	$('.datepicker').datepicker({
 		showOn: "both",
-		buttonImage: "images/calendar.gif",
-		buttonImageOnly: true
+		buttonImage: "images/calendar.png",
+		buttonImageOnly: true,
+		dateFormat: 'yy-M-dd', 
+		onSelect: function(dateText, inst) {
+			console.log(dateText);
+			row = $(this);
+			name = row.parent().parent().data('name');
+			controller = $('[data-controller]').data('controller')
+			$.ajax("advancements/" + advancementId + "/updateDate", {
+				type: 'POST',
+				datatype: 'json',
+				data: {
+					req: name, con: controller, date: dateText
+				},
+
+				beforeSend: function(xhr) {
+					xhr.setRequestHeader('Accept', 'application/json');
+				},
+				success: function(data){
+					row.parent().parent().children().eq(2).replaceWith('<td><img alt=\"Checkmark\" src=\"/assets/checkmark.png\"></td>').hide().show('slow');
+				},
+				error: function(jqXHR, textStatus, errorThrown) {}, 
+				complete: function() {
+					return $(this);
+				}
+			});
+		}
 	});
 });

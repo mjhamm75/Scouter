@@ -1,4 +1,4 @@
-<%= f.fields_for :boy_scout_rank do |ff|  %>
+<%= form_for :boy_scout do |f| %>
 <table class="table table-hover" data-controller="boy_scout_rank">
 	<thead>
 		<tr>
@@ -16,13 +16,12 @@
 			<td>1</td>
 			<td>Meet the age requirements. Be a boy who is 11 years old, or one who has completed the fifth grade or earned the Arrow of Light Award and is at least 10 years old, but is not yet 18 years old.</td>
 			<td>
-				<%= ff.text_field :one_li %>
 				<% if(!@boy_scout.one_li.blank?) %>
 				<%=  image_tag("checkmark.png") %>
 				<% end %>
 			</td>
 			<td>
-				<%= ff.text_field(:one_li_date, :class => "datepicker") %>
+				<%= f.text_field :one_li_date, :class => "datepicker" %>
 			</td>
 		</tr>
 		<tr data-name="two_li">
@@ -32,7 +31,9 @@
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td><input class="datepicker" /></td>
+			<td>
+				<%= f.text_field :two_li_date, :class => "datepicker" %>
+			</td>
 		</tr>
 		<tr data-name="three_li">
 			<td>3</td>
@@ -41,7 +42,9 @@
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td><input class="datepicker" /></td>
+			<td>
+				<%= f.text_field :three_li_date, :class => "datepicker" %>
+			</td>
 		</tr>
 				<tr data-name="four_li">
 			<td>4</td>
@@ -50,16 +53,22 @@
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td><input class="datepicker" /></td>
+			<td>
+				<%= f.text_field :four_li_date, :class => "datepicker" %>
+			</td>
 		</tr>
 				<tr data-name="five_li">
 			<td>5</td>
 			<td>Demonstrate the Scout sign, salute, and handshake.</td>
+			
+			<%= puts @boy_scout.five_li %>			
 			<td> <% if(!@boy_scout.five_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td><input class="datepicker" /></td>
+			<td>
+				<%= f.text_field :five_li_date, :class => "datepicker" %>
+			</td>
 		</tr>
 				<tr data-name="six_li">
 			<td>6</td>
@@ -68,7 +77,9 @@
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td><input class="datepicker" /></td>
+			<td>
+				<%= f.text_field :six_li_date, :class => "datepicker" %>
+			</td>
 		</tr>
 				<tr data-name="seven_li">
 			<td>7</td>
@@ -77,7 +88,9 @@
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td><input class="datepicker" /></td>
+			<td>
+				<%= f.text_field :seven_li_date, :class => "datepicker" %>
+			</td>
 		</tr>
 				<tr data-name="eight_li">
 			<td>8</td>
@@ -86,7 +99,9 @@
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td><input class="datepicker" /></td>
+			<td>
+				<%= f.text_field :eight_li_date, :class => "datepicker" %>
+			</td>
 		</tr>
 				<tr data-name="nine_li">
 			<td>9</td>
@@ -95,7 +110,9 @@
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td><input class="datepicker" /></td>
+			<td>
+				<%= f.text_field :nine_li_date, :class => "datepicker" %>
+			</td>
 		</tr>
 				<tr data-name="ten_li">
 			<td>10</td>
@@ -104,7 +121,9 @@
 				 <%=  image_tag("checkmark.png") %>
 				 <% end %> 
 			</td>
-			<td><input class="datepicker" /></td>
+			<td>
+				<%= f.text_field :ten_li_date, :class => "datepicker" %>
+			</td>
 		</tr>
 
 	</tbody>

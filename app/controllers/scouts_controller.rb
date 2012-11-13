@@ -46,9 +46,9 @@ class ScoutsController < ApplicationController
   def create
     puts "CREATE"
     @scout = Scout.new(params[:scout])
-    # @scout.advancement = Advancement.new
-    # @scout.advancement.boy_scout_rank = BoyScoutRank.new
-    # @scout.advancement.star_rank = StarRank.new
+    @scout.advancement = Advancement.new
+    @scout.advancement.boy_scout_rank = BoyScoutRank.new
+    @scout.advancement.star_rank = StarRank.new
 
 
     respond_to do |format|

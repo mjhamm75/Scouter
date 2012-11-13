@@ -1,4 +1,5 @@
 class AdvancementsController < ApplicationController
+  before_filter :load_scout
   # GET /advancements
   # GET /advancements.json
   def index
@@ -20,8 +21,9 @@ class AdvancementsController < ApplicationController
     puts params.inspect
     puts "]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]"
 
-    @advance = Scout.find(params[:scout_id]).advancement
+    
     scout = Scout.find(params[:scout_id])
+    @advance = scout.advancement
     con = params[:con]
     req = params[:req]
     puts con
@@ -91,4 +93,24 @@ class AdvancementsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def updateDate
+    puts "UPDATE DATE"
+    scout = Scout.find(params[:scout_id])
+    @advance = scout.advancement
+    con = params[:con]
+    req = params[:req]
+    date = params[:date]
+    puts con
+    puts req
+    @link = @advance.update_date(scout, con, req, date)
+    respond_to do |format|
+      format.json
+    end
+  end
+
+  private
+    def load_scout
+      @scout = Scout.find(params[:scout_id])
+    end
 end

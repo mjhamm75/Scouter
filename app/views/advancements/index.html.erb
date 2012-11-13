@@ -1,3 +1,1 @@
- <%= form_for(@advancement.scout) do |f| %>
-   <%= render :partial => "boy_scout.html.erb", :locals => { :f => f } %>
- <% end %> 
+<%= render :partial => "boy_scout.html.erb", :locals => {:boy_scout => @boy_scout} %>

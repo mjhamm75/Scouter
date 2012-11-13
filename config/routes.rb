@@ -2,6 +2,7 @@ Scouter::Application.routes.draw do
 
   resources :scouts do 
     resources :advancements
+    match 'advancements/:id/updateDate' => 'advancements#updateDate'
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

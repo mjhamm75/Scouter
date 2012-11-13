@@ -23,7 +23,7 @@ class Advancement < ActiveRecord::Base
    		scout.advancement.send(con).send(req + '=', "jh")
    		puts "Inserted Name"
    		puts scout.advancement.send(con).send(req)
-      puts scout.advancement.send(con).send(req + "_date" + '=', Date.new)
+      puts scout.advancement.send(con).send(req + "_date" + '=', Date.today.to_s)
       puts "Inserted Date"
    	else
    		scout.advancement.send(con).send(req + '=', "")
@@ -35,6 +35,16 @@ class Advancement < ActiveRecord::Base
    	puts "SAVED"
    	scout.advancement.send(con).save
    	puts "FINISHED"
+  end
+
+  def update_date(scout, con, req, date)
+    advancement = scout.advancement
+    rank = scout.advancement.send(con)
+    req_complete = req + "_date"
+    scout.advancement.send(con).send(req_complete + '=', date)
+    scout.advancement.send(con).send(req + '=', "jh")
+    scout.advancement.send(con).save
+    puts "Date Saved" 
   end
 
 end
