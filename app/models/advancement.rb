@@ -3,13 +3,16 @@ class Advancement < ActiveRecord::Base
   belongs_to :scout
   has_one :boy_scout_rank, :dependent => :destroy
   has_one :star_rank, :dependent => :destroy
+  has_one :life_rank, :dependent => :destroy
   accepts_nested_attributes_for :boy_scout_rank
   accepts_nested_attributes_for :star_rank
+  accepts_nested_attributes_for :life_rank
   attr_accessible :boy_scout_rank_attributes
   attr_accessible :star_rank_attributes
+  attr_accessible :life_rank_attributes
 
   def toggle_approve(scout, con, req)
-    
+
     puts "TOGGLE_APPROVE"
     puts "??????????????????????????????????"
     puts scout.id
@@ -44,7 +47,7 @@ class Advancement < ActiveRecord::Base
     scout.advancement.send(con).send(req_complete + '=', date)
     scout.advancement.send(con).send(req + '=', "jh")
     scout.advancement.send(con).save
-    puts "Date Saved" 
+    puts "Date Saved"
   end
 
 end

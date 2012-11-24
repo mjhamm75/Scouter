@@ -2,7 +2,7 @@
 <table class="table table-hover" data-controller="boy_scout_rank">
 	<thead>
 		<tr>
-			<th colspan="4" align="left"><h2>Boy Scout Rank</h2></th>
+			<th colspan="4" align="left"><h2> Boy Scout Rank</h2></th>
 		</tr>
 		<tr>
 			<th>Number</th>
@@ -29,7 +29,7 @@
 			<td>Find a Scout troop near your home.</td>
 			<td> <% if(!@boy_scout.two_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
-				 <% end %> 
+				 <% end %>
 			</td>
 			<td>
 				<%= f.text_field :two_li_date, :class => "datepicker" %>
@@ -40,7 +40,7 @@
 			<td>Complete a Boy Scout application and health history signed by your parent or guardian.</td>
 			<td> <% if(!@boy_scout.three_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
-				 <% end %> 
+				 <% end %>
 			</td>
 			<td>
 				<%= f.text_field :three_li_date, :class => "datepicker" %>
@@ -51,7 +51,7 @@
 			<td>Repeat the Pledge of Allegiance.</td>
 			<td> <% if(!@boy_scout.four_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
-				 <% end %> 
+				 <% end %>
 			</td>
 			<td>
 				<%= f.text_field :four_li_date, :class => "datepicker" %>
@@ -60,11 +60,11 @@
 				<tr data-name="five_li">
 			<td>5</td>
 			<td>Demonstrate the Scout sign, salute, and handshake.</td>
-			
-			<%= puts @boy_scout.five_li %>			
+
+			<%= puts @boy_scout.five_li %>
 			<td> <% if(!@boy_scout.five_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
-				 <% end %> 
+				 <% end %>
 			</td>
 			<td>
 				<%= f.text_field :five_li_date, :class => "datepicker" %>
@@ -75,7 +75,7 @@
 			<td>Demonstrate tying the square knot (a joining knot).</td>
 			<td> <% if(!@boy_scout.six_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
-				 <% end %> 
+				 <% end %>
 			</td>
 			<td>
 				<%= f.text_field :six_li_date, :class => "datepicker" %>
@@ -86,7 +86,7 @@
 			<td>Understand and agree to live by the Scout Oath or Promise, Law, motto, and slogan, and the Outdoor Code.</td>
 			<td> <% if(!@boy_scout.seven_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
-				 <% end %> 
+				 <% end %>
 			</td>
 			<td>
 				<%= f.text_field :seven_li_date, :class => "datepicker" %>
@@ -97,7 +97,7 @@
 			<td>Describe the Scout badge.</td>
 			<td> <% if(!@boy_scout.eight_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
-				 <% end %> 
+				 <% end %>
 			</td>
 			<td>
 				<%= f.text_field :eight_li_date, :class => "datepicker" %>
@@ -108,7 +108,7 @@
 			<td>Complete the pamphlet exercises. With your parent or guardian, complete the exercises in the pamphlet How to Protect Your Children From Child Abuse: A Parent’s Guide.</td>
 			<td> <% if(!@boy_scout.nine_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
-				 <% end %> 
+				 <% end %>
 			</td>
 			<td>
 				<%= f.text_field :nine_li_date, :class => "datepicker" %>
@@ -119,7 +119,7 @@
 			<td>Participate in a Scoutmaster conference. Turn in your Boy Scout application and health history form signed by your parent or guardian, then participate in a Scoutmaster conference</td>
 			<td> <% if(!@boy_scout.ten_li.blank?) %>
 				 <%=  image_tag("checkmark.png") %>
-				 <% end %> 
+				 <% end %>
 			</td>
 			<td>
 				<%= f.text_field :ten_li_date, :class => "datepicker" %>
@@ -129,6 +129,6 @@
 	</tbody>
 </table>
 <%= javascript_tag do %>
-  window.advancementId = "<%=j @boy_scout.id.to_s %>"; 
+  window.advancementId = "<%=j @boy_scout.id.to_s %>";
 <% end %>
 <% end %>

@@ -1,1 +1,34 @@
-<%= render :partial => "boy_scout.html.erb", :locals => {:boy_scout => @boy_scout} %>
+<!--The switcher buttons, basic anchor tags, with the switcher class -->
+<a id="content1" class="switcher">Boy Scout</a>
+<a id="content2" class="switcher">Tenderfoot</a>
+<a id="content3" class="switcher">Second Class</a>
+<a id="content4" class="switcher">First Class</a>
+<a id="content5" class="switcher">Star</a>
+<a id="content6" class="switcher">Life</a>
+<a id="content7" class="switcher">Eagle</a>
+
+<!-- The panel you wish to use to display the content -->
+<div id="switcher-panel"></div>
+
+<!-- The actual content you want to switch in and out of the panel, this is hidden -->
+<div id="content1-content" class="switcher-content show">
+  <%= render :partial => @boy_scout_partial, :locals => { :boy_scout => @boy_scout} %>
+</div>
+<!-- <div id="content2-content" class="switcher-content">
+  <%= render :partial => "tenderfoot.html.erb", :locals => { :tenderfoot => @tenderfoot} %>
+</div> -->
+<div id="content3-content" class="switcher-content">
+  <%= render :partial => "first_class.html.erb", :locals => { :first_class => @first_class} %>
+</div>
+<div id="content4-content" class="switcher-content">
+  <%= render :partial => @boy_scout_partial, :locals => { :boy_scout => @boy_scout} %>
+</div>
+<div id="content5-content" class="switcher-content">
+  <%= render :partial => "star.html.erb", :locals => { :star => @star } %>
+</div>
+<div id="content6-content" class="switcher-content">
+  <%= render :partial => "life.html.erb", :locals => { :life => @life } %>
+</div>
+<div id="content7-content" class="switcher-content">
+  <%= render :partial => @boy_scout_partial, :locals => { :boy_scout => @boy_scout} %>
+</div>

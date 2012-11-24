@@ -3,11 +3,13 @@ class AdvancementsController < ApplicationController
   # GET /advancements
   # GET /advancements.json
   def index
+    @boy_scout_partial = "boy_scout.html.erb"
     puts "INDEX"
     puts params.inspect
     @advancement = Advancement.find(params[:scout_id])
     @boy_scout = @advancement.boy_scout_rank
     @star = @advancement.star_rank
+    @life = @advancement.life_rank
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @advancements }
@@ -21,7 +23,7 @@ class AdvancementsController < ApplicationController
     puts params.inspect
     puts "]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]"
 
-    
+
     scout = Scout.find(params[:scout_id])
     @advance = scout.advancement
     con = params[:con]

@@ -18,9 +18,11 @@
 //= require_tree .
 
 $(document).ready(function(){
-	$('tr td:not(:last-child)').click(function(){
-		row = $(this).parent();
-		name = row.data('name');
+  $('#switcher-panel').on('click', 'table tr td:not(:last-child)', function(){
+	// $('tr td:not(:last-child)').click(function(){
+    row = $(this).parent();
+    console.log(this);
+    name = row.data('name');
 		controller = $('[data-controller]').data('controller')
 		if(row.children().eq(2).find("img:visible").length > 0){
 			row.children().eq(2).find("img").hide('fast');
@@ -45,42 +47,51 @@ $(document).ready(function(){
 				xhr.setRequestHeader('Accept', 'application/json');
 			},
 			success: function(data){},
-			error: function(jqXHR, textStatus, errorThrown) {}, 
+			error: function(jqXHR, textStatus, errorThrown) {},
 			complete: function() {
 				return $(this);
 			}
 		});
-		console.log("It still works");
+		// console.log("It still works");
 	});
 
-	$('.datepicker').datepicker({
-		showOn: "both",
-		buttonImage: "images/calendar.png",
-		buttonImageOnly: true,
-		dateFormat: 'yy-M-dd', 
-		onSelect: function(dateText, inst) {
-			console.log(dateText);
-			row = $(this);
-			name = row.parent().parent().data('name');
-			controller = $('[data-controller]').data('controller')
-			$.ajax("advancements/" + advancementId + "/updateDate", {
-				type: 'POST',
-				datatype: 'json',
-				data: {
-					req: name, con: controller, date: dateText
-				},
+  $('#switcher-panel').on('click', 'table tr td input', function(){
+    $('.datepicker').datepicker({
+      buttonImage: "images/calendar.png",
+      dateFormat: 'yy-M-dd'
+    });
+  });
 
-				beforeSend: function(xhr) {
-					xhr.setRequestHeader('Accept', 'application/json');
-				},
-				success: function(data){
-					row.parent().parent().children().eq(2).replaceWith('<td><img alt=\"Checkmark\" src=\"/assets/checkmark.png\"></td>').hide().show('slow');
-				},
-				error: function(jqXHR, textStatus, errorThrown) {}, 
-				complete: function() {
-					return $(this);
-				}
-			});
-		}
-	});
+	// $('.datepicker').datepicker({
+	// 	showOn: "both",
+	// 	buttonImage: "images/calendar.png",
+	// 	buttonImageOnly: true,
+	// 	dateFormat: 'yy-M-dd',
+	// 	onSelect: function(dateText, inst) {
+	// 		console.log(dateText);
+	// 		row = $(this);
+	// 		name = row.parent().parent().data('name');
+	// 		controller = $('[data-controller]').data('controller')
+	// 		$.ajax("advancements/" + advancementId + "/updateDate", {
+	// 			type: 'POST',
+	// 			datatype: 'json',
+	// 			data: {
+	// 				req: name, con: controller, date: dateText
+	// 			},
+
+	// 			beforeSend: function(xhr) {
+	// 				xhr.setRequestHeader('Accept', 'application/json');
+	// 			},
+	// 			success: function(data){
+	// 				row.parent().parent().children().eq(2).replaceWith('<td><img alt=\"Checkmark\" src=\"/assets/checkmark.png\"></td>').hide().show('slow');
+	// 			},
+	// 			error: function(jqXHR, textStatus, errorThrown) {},
+	// 			complete: function() {
+	// 				return $(this);
+	// 			}
+	// 		});
+	// 	}
+	// });
+
+  jcps.fader(300, '#switcher-panel');
 });
